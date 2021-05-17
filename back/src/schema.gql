@@ -1,0 +1,42 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  IdUser: ID!
+  username: String!
+  password: String!
+}
+
+type LoginPayload {
+  accessToken: String!
+  user: User!
+}
+
+type AuthReturn {
+  idUser: Float!
+  username: String!
+}
+
+type Query {
+  hello: String!
+  users: [User!]!
+  login(authData: AuthData!): LoginPayload!
+  me: AuthReturn!
+}
+
+"""login data"""
+input AuthData {
+  username: String!
+  password: String!
+}
+
+type Mutation {
+  createUser(data: AddUser!): User!
+}
+
+"""new user data"""
+input AddUser {
+  username: String!
+  password: String!
+}
